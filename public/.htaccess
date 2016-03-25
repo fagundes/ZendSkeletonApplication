@@ -1,3 +1,5 @@
+SetEnv APP_ENV "development"
+
 RewriteEngine On
 # The following rule tells Apache that if the requested filename
 # exists, simply serve it.
