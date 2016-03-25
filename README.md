@@ -1,11 +1,10 @@
-ZendSkeletonApplication
+ZffSprout
 =======================
+A minimalist and elegant Skeleton Application for ZF2, yet a powerfull starter application, see the list of included [features](#features).
 
 Introduction
 ------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+This is a fork of the official [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication). The objective of Sprout is save your time and effort when you are creating a ZF2 Application from scratch.
 
 Installation using Composer
 ---------------------------
@@ -15,19 +14,16 @@ The easiest way to create a new ZF2 project is to use [Composer](https://getcomp
 
 Create your new ZF2 project:
 
-    composer create-project -n -sdev zendframework/skeleton-application path/to/install
-
-
+    composer create-project -n -sdev fagundes/zff-sprout path/to/install
 
 ### Installation using a tarball with a local Composer
 
 If you don't have composer installed globally then another way to create a new ZF2 project is to download the tarball and install it:
 
-1. Download the [tarball](https://github.com/zendframework/ZendSkeletonApplication/tarball/master), extract it and then install the dependencies with a locally installed Composer:
+1. Download the [tarball](https://github.com/fagundes/ZffSprout/tarball/master), extract it and then install the dependencies with a locally installed Composer:
 
         cd my/project/dir
-        curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
-    
+        curl -#L https://github.com/fagundes/ZffSprout/tarball/master | tar xz --strip-components=1
 
 2. Download composer into your project directory and install the dependencies:
 
@@ -116,3 +112,181 @@ it should look something like below:
     }
 
 Restart the nginx, now you should be ready to go!
+
+Features
+--------
+
+1. Ready to environment-specific application configuration (futher [information](http://framework.zend.com/manual/current/en/tutorials/config.advanced.html) about it):
+
+    - You can set the current application environment (Apache 2 example):
+
+          SetEnv APP_ENV "development"
+
+    - You can use anywhere the constant `APP_ENV` to retrieve the current environment
+
+    - Update the file `config/application.config.php`, you can configure:
+        - Default Enviroment (if none is set)
+        - Default Modules (active in all enviroments)
+        - Modules per Environment
+        - Default Module Listener Options
+        - Module Listener Options per Enviroment
+
+2. Comes with [Robo](http://robo.li/) (task runner for PHP) and prepared with some useful commands:
+
+    - Clear
+        - [clear](#clear)
+        - [clear:css](#clear-css)
+        - [clear:font](#clear-font)
+        - [clear:js](#clear-js)
+        - [clear:img](#clear-image)
+    - Dist
+        - [dist](#dist)
+        - [dist:css](#dist-css)
+        - [dist:font](#dist-font)
+        - [dist:js](#dist-js)
+        - [dist:img](#dist-image)
+    - Watch
+        - [watch](#watch)
+        - [watch:composer](#watch-composer)
+        - [watch:css](#watch-css)
+        - [watch:font](#watch-font)
+        - [watch:js](#watch-js)
+        - [watch:img](#watch-image)
+
+ ### Clear
+
+ Executes all clear commands at once. It will remove any files from dist subfolders (css, fonts, js and img).
+
+ Usage:
+
+        vendor/bin/robo clear
+
+ #### Clear Css
+
+ Delete all files from dist css folder, by default `public/dist/css` directory.
+
+ Usage:
+
+        vendor/bin/robo clear:css
+
+ #### Clear Font
+
+ Delete all files from dist fonts folder, by default `public/dist/fonts` directory.
+
+ Usage:
+
+        vendor/bin/robo clear:font
+
+ #### Clear Js
+
+ Delete all files from dist js folder, by default `public/dist/js` directory.
+
+ Usage:
+
+        vendor/bin/robo clear:js
+
+ #### Clear Image
+
+ Delete all files from dist image folder, by default `public/dist/img` directory.
+
+ Usage:
+
+        vendor/bin/robo clear:img
+
+ ### Dist
+
+ Executes all dist commands at once.
+
+ Usage:
+
+    vendor/bin/robo dist
+
+ #### Dist Css
+
+ Executes three steps commands:
+    - Executes [clear:css](#clear-css) command.
+    - Compiles `main.scss` and creates the files `zff-sprout.css` and `zff-sprout.min.css` in dist css folder (`public/dist/css`).
+    - Compiles any css vendors and creates the files `zff-sprout-vendors.css` and `zff-sprout-vendors.min.css` also in dist css folder.
+
+ Usage:
+
+        vendor/bin/robo dist:css
+
+ #### Dist Font
+
+ Executes two steps commands:
+    - Executes [clear:font](#clear-font) command.
+    - Copy any font vendors to dist fonts folder (`public/dist/fonts`).
+
+ Usage:
+
+        vendor/bin/robo dist:font
+
+ #### Dist Js
+
+ Executes three steps commands:
+    - Executes [clear:js](#clear-js) command.
+    - Concat any js file in `public/js` and creates the files `zff-sprout.js` and `zff-sprout.min.js` in dist js folder (`public/dist/js`).
+    - Concat any js vendors and creates the files `zff-sprout-vendors.js` and `zff-sprout-vendors.min.js` also in dist js folder.
+
+ Usage:
+
+        vendor/bin/robo dist:js
+
+ #### Dist Js
+
+ Executes two steps commands:
+    - Executes [clear:two](#clear-two) command.
+    - Copy any img file in `public/img` to dist images folder (`public/dist/img`)
+
+ Usage:
+
+        vendor/bin/robo dist:img
+
+ ### Watch
+
+  Executes all watch commands at once.
+
+  Usage:
+
+        vendor/bin/robo watch
+
+ #### Watch Composer
+
+ Monitors the `composer.json` file and when it changes `composer update` will be executed.
+
+ Usage:
+
+        vendor/bin/robo watch:composer
+
+ #### Watch Css
+
+  Monitors all files in `public/css` folder and when anyone changes the command [dist:css](#dist-css) will be executed.
+
+  Usage:
+
+         vendor/bin/robo watch:css
+
+ #### Watch Font
+
+  Monitors all files in `public/font` folder and when anyone changes the command [dist:font](#dist-font) will be executed.
+
+  Usage:
+
+         vendor/bin/robo watch:font
+
+ #### Watch Js
+
+  Monitors all files in `public/js` folder and when anyone changes the command [dist:css](#dist-js) will be executed.
+
+  Usage:
+
+         vendor/bin/robo watch:css
+
+ #### Watch Img
+
+  Monitors any file in `public/img` folder and when it changes the command [dist:img](#dist-img) will be executed.
+
+  Usage:
+
+         vendor/bin/robo watch:img          SetEnv APP_ENV "development"
