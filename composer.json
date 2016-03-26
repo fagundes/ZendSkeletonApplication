@@ -18,8 +18,8 @@
     "fagundes/zff-table": "~3.2",
     "sendgrid/sendgrid": "~4",
     "phpsc/pagseguro": "@dev",
-    "twitter/bootstrap": "~3",
-    "fortawesome/font-awesome": "^4.4",
+    "components/bootstrap": "~3",
+    "components/font-awesome": "^4.4",
     "eonasdan/bootstrap-datetimepicker": "~4"
   },
   "require-dev": {

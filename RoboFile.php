@@ -31,7 +31,9 @@ class RoboFile extends \Robo\Tasks
      * @var array
      */
     protected $vendorsCss = [
-
+        'components/bootstrap/css/bootstrap.css',
+        'components/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
+        'components/font-awesome/css/font-awesome.css',
     ];
 
     /**
@@ -39,7 +41,11 @@ class RoboFile extends \Robo\Tasks
      * @var array
      */
     protected $vendorsJs = [
-
+        'components/jquery/jquery.js',
+        'components/moment/locale/pt-br.js',
+        'components/moment/moment.js',
+        'components/bootstrap/js/bootstrap.js',
+        'components/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
     ];
 
     /**
@@ -47,7 +53,8 @@ class RoboFile extends \Robo\Tasks
      * @var array
      */
     protected $vendorsFonts = [
-
+        'components/bootstrap/fonts',
+        'components/font-awesome/fonts',
     ];
 
     public function clearCss()
