@@ -1,0 +1,10 @@
+<?php
+
+return [
+    'pagseguro' => [
+        //true to production or false to sandbox (test)
+        'environment' => false,
+        'email' => 'example@example.com',
+        'token' => 'pagseguro-toke'
+    ]
+];

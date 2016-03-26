@@ -9,7 +9,18 @@
   "homepage": "http://github.com/fagundes/ZffSprout",
   "require": {
     "php": ">=5.5",
-    "zendframework/zendframework": "~2.5"
+    "zendframework/zendframework": "~2.5",
+    "zf-commons/zfc-user": "1.x",
+    "zf-commons/zfc-user-doctrine-orm": "1.x",
+    "bjyoungblood/bjy-authorize": "1.4.x",
+    "fagundes/zff-base": "0.1.x",
+    "fagundes/zff-html2pdf": "0.5.x",
+    "fagundes/zff-table": "~3.2",
+    "sendgrid/sendgrid": "~4",
+    "phpsc/pagseguro": "@dev",
+    "twitter/bootstrap": "~3",
+    "fortawesome/font-awesome": "^4.4",
+    "eonasdan/bootstrap-datetimepicker": "~4"
   },
   "require-dev": {
     "zendframework/zftool": "dev-master",

@@ -18,6 +18,16 @@ $env_options = array(
      * Configure here modules actives in all envs
      */
     'modules_default'                 => array(
+        'DoctrineModule',
+        'DoctrineORMModule',
+        'ZfcBase',
+        'ZfcUser',
+        'ZfcUserDoctrineORM',
+        'BjyAuthorize',
+        'AssetManager',
+        'ZfTable',
+        'Zff\\Base',
+        'Zff\\Html2Pdf',
         'Application',
     ),
     /**

@@ -1,0 +1,8 @@
+<?php
+
+return [
+    'sendgrid' => [
+        'username' => 'sendgrid-username',
+        'password' => 'sendgrid-token-or-password'
+    ]
+];
