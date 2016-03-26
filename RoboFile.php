@@ -1,5 +1,7 @@
 <?php
 
+require 'config/application.config.php';
+
 /**
  * This is project's console commands configuration for Robo task runner.
  *
@@ -79,6 +81,8 @@ class RoboFile extends \Robo\Tasks
 
     public function distCss()
     {
+        $this->clearCss();
+
         $this->taskScss([
             "{$this->assetsPath}/css/main.scss" => "{$this->distPath}/css/{$this->projectName}.css",
         ])
@@ -95,11 +99,15 @@ class RoboFile extends \Robo\Tasks
 
     public function distFont()
     {
+        $this->clearFont();
+
         $this->_copyDir(["{$this->assetsPath}/fonts"] + $this->vendorsFonts, "{$this->distPath}/fonts");
     }
 
     public function distJs()
     {
+        $this->clearJs();
+
         $this->taskConcat(["{$this->assetsPath}/js/**.js"])
             ->to("{$this->distPath}/js/{$this->projectName}.js")
             ->run();
