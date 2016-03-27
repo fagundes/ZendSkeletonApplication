@@ -14,7 +14,7 @@ The easiest way to create a new ZF2 project is to use [Composer](https://getcomp
 
 Create your new ZF2 project:
 
-    composer create-project -n -sdev fagundes/zff-sprout path/to/install
+    composer create-project -n -sdev fagundes/zff-sprout path/to/install dev-tree
 
 ### Installation using a tarball with a local Composer
 
