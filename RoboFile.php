@@ -71,7 +71,23 @@ class RoboFile extends \Robo\Tasks
 
     public function clearJs()
     {
+        $ignoreJsDistFiles = [
+            'respond.min.js',
+            'html5shiv.min.js',
+        ];
+
+        $data = $this->taskTmpDir()->run()->getData();
+        $tmp  = $data['path'];
+
+        foreach ($ignoreJsDistFiles as $file) {
+            $this->_rename("$this->distPath/js/$file", "$tmp/$file");
+        }
+
         $this->_cleanDir("$this->distPath/js");
+
+        foreach ($ignoreJsDistFiles as $file) {
+            $this->_rename("$tmp/$file", "$this->distPath/js/$file");
+        }
     }
 
     public function clearImg()
@@ -102,7 +118,7 @@ class RoboFile extends \Robo\Tasks
         $this->clearFont();
 
         $fromDirs = array_merge(["{$this->assetsPath}/fonts"], $this->vendorsFonts);
-        $dirs = array_combine($fromDirs, array_fill(0, count($fromDirs), "{$this->distPath}/fonts" ));
+        $dirs     = array_combine($fromDirs, array_fill(0, count($fromDirs), "{$this->distPath}/fonts"));
 
         $this->taskCopyDir($dirs)->run();
     }
@@ -180,6 +196,9 @@ class RoboFile extends \Robo\Tasks
             })->run();
     }
 
+    /**
+     * Cleanup dist files
+     */
     public function clear()
     {
         $this->clearCss();
@@ -188,6 +207,9 @@ class RoboFile extends \Robo\Tasks
         $this->clearImg();
     }
 
+    /**
+     * Concat, minify and write assets in dist folder
+     */
     public function dist()
     {
         $this->distCss();
@@ -196,6 +218,9 @@ class RoboFile extends \Robo\Tasks
         $this->distImg();
     }
 
+    /**
+     * Watch assets folders and compopser.json file and run respectively `dist:folder` or `composer update`
+     */
     public function watch()
     {
         $this->taskWatch()
