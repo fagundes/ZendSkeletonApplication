@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5262d3526f3551778ebd8ee84664f3e1",
-    "content-hash": "6bcf0318d83f9e84923ee283b4e1c54c",
+    "hash": "f169194ded4d406242a9d1151a8ed617",
+    "content-hash": "4915250dc029ee49d2e61e962eca2dfb",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -4958,50 +4958,6 @@
             "time": "2016-02-02 13:44:19"
         },
         {
-            "name": "thomasbachem/php-short-array-syntax-converter",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/a-vasyliev/php-short-array-syntax-converter.git",
-                "reference": "59fde6c9a45543a39f2ce4787c5c1d83c9f50899"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/a-vasyliev/php-short-array-syntax-converter/zipball/59fde6c9a45543a39f2ce4787c5c1d83c9f50899",
-                "reference": "59fde6c9a45543a39f2ce4787c5c1d83c9f50899",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "bin": [
-                "bin/array-converter"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Thomas Bachem",
-                    "email": "mail@thomasbachem.com",
-                    "homepage": "http://thomasbachem.com"
-                },
-                {
-                    "name": "Andrii Vasyliev",
-                    "email": "contact@andrey-vasiliev.com",
-                    "homepage": "http://andrey-vasiliev.com"
-                }
-            ],
-            "description": "Command-line script to convert PHP's array() syntax to PHP 5.4's short array syntax [] using PHP's built-in tokenizer.",
-            "homepage": "https://github.com/a-vasyliev/php-short-array-syntax-converter",
-            "keywords": [
-                "array",
-                "converter",
-                "php",
-                "short"
-            ],
-            "time": "2014-10-31 13:57:10"
-        },
-        {
             "name": "zendframework/zenddiagnostics",
             "version": "v1.0.8",
             "source": {
@@ -5127,8 +5083,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zendframework/zftool": 20,
-        "thomasbachem/php-short-array-syntax-converter": 20
+        "zendframework/zftool": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
