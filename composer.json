@@ -25,7 +25,6 @@
   "require-dev": {
     "zendframework/zftool": "dev-master",
     "squizlabs/php_codesniffer": "~2",
-    "thomasbachem/php-short-array-syntax-converter": "dev-master",
     "leafo/scssphp": "*",
     "natxet/CssMin": "*",
     "codegyre/robo": "*",
