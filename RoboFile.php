@@ -47,8 +47,8 @@ class RoboFile extends \Robo\Tasks
      */
     protected $vendorsJs = [
         'components/jquery/jquery.js',
-        'components/moment/locale/pt-br.js',
         'components/moment/moment.js',
+        'components/moment/locale/pt-br.js',
         'components/bootstrap/js/bootstrap.js',
         'components/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
     ];
