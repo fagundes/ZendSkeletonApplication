@@ -1,5 +1,5 @@
 <?php
-    $lang_attributes = 'en';
+$lang_attributes = 'en';
 ?>
 <?= $this->doctype(); ?>
 <!--[if IE 7]>
@@ -11,34 +11,34 @@
 <!--[if !(IE 7) | !(IE 8) ]><!-->
 <html <?= $lang_attributes; ?>>
 <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <?= $this->headTitle('ZffSprout Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
+<head>
+    <meta charset="utf-8">
+    <?= $this->headTitle('ZffSprout Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
 
-        <?= $this->headMeta()
-            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
-            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
-        ?>
+    <?= $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
 
-        <!-- Le styles -->
-        <?= $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath('dist/img/favicon.ico')))
-                        ->prependStylesheet($this->basePath('dist/css/'.PROJECT_NAME.'.min.css'))
-                        ->prependStylesheet($this->basePath('dist/css/'.PROJECT_NAME.'-vendors.min.css')) ?>
+    <!-- Le styles -->
+    <?= $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath('dist/img/favicon.ico')))
+        ->prependStylesheet($this->basePath('dist/css/' . PROJECT_NAME . (APP_ENV == 'production' ? '.min.css' : '.css')))
+        ->prependStylesheet($this->basePath('dist/css/' . PROJECT_NAME . '-vendors' . (APP_ENV == 'production' ? '.min.css' : '.css'))) ?>
 
-        <!-- Scripts -->
-        <?= $this->headScript()
-            ->prependFile($this->basePath('dist/js/'.PROJECT_NAME.'.min.js'))
-            ->prependFile($this->basePath('dist/js/'.PROJECT_NAME.'-vendors.min.js'))
-            ->prependFile($this->basePath('dist/js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
-            ->prependFile($this->basePath('dist/js/html5shiv.min.js'),   'text/javascript', array('conditional' => 'lt IE 9',))
-         ?>
+    <!-- Scripts -->
+    <?= $this->headScript()
+        ->prependFile($this->basePath('dist/js/' . PROJECT_NAME . (APP_ENV == 'production' ? '.min.js' : '.js')))
+        ->prependFile($this->basePath('dist/js/' . PROJECT_NAME . '-vendors' . (APP_ENV == 'production' ? '.min.js' : '.js')))
+        ->prependFile($this->basePath('dist/js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+        ->prependFile($this->basePath('dist/js/html5shiv.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+    ?>
 
-    </head>
-    <body>
-        <div>
-            <?= $this->content; ?>
-        </div>
-        <footer></footer>
-        <?= $this->inlineScript() ?>
-    </body>
+</head>
+<body>
+<div>
+    <?= $this->content; ?>
+</div>
+<footer></footer>
+<?= $this->inlineScript() ?>
+</body>
 </html>
