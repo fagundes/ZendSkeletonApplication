@@ -16,6 +16,9 @@ class RoboFile extends \Robo\Tasks
      */
     protected $projectName = PROJECT_NAME;
 
+    protected $urlDev  = 'http://localhost';
+    protected $urlProd = 'http://example.com';
+
     /**
      * Assets Path is the default folder to assets in development
      * @var string
@@ -58,6 +61,11 @@ class RoboFile extends \Robo\Tasks
         'components/bootstrap/fonts',
         'components/font-awesome/fonts',
     ];
+
+    public function clearCache()
+    {
+        $this->_cleanDir("data/cache");
+    }
 
     public function clearCss()
     {
@@ -155,6 +163,22 @@ class RoboFile extends \Robo\Tasks
             ->run();
     }
 
+    /**
+     * Open a browser with url in $urlDev
+     */
+    public function launchDev()
+    {
+        $this->launch($this->urlDev);
+    }
+
+    /**
+     * Open a browser with url in $urlProd
+     */
+    public function launchProd()
+    {
+        $this->launch($this->urlProd);
+    }
+
     public function watchComposer()
     {
         // when composer.json changes `composer update` will be executed
@@ -201,6 +225,7 @@ class RoboFile extends \Robo\Tasks
      */
     public function clear()
     {
+        $this->clearCache();
         $this->clearCss();
         $this->clearFont();
         $this->clearJs();
@@ -240,6 +265,17 @@ class RoboFile extends \Robo\Tasks
                 $this->distJs();
             })
             ->run();
+    }
+
+    /**
+     * Open a browser with the url passed
+     *
+     * @param string $url url to be opened on browser
+     */
+    public function launch($url)
+    {
+        // open one browser window
+        $this->taskOpenBrowser($url)->run();
     }
 
 }
