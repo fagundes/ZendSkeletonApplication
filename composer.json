@@ -17,6 +17,6 @@
     "leafo/scssphp": "*",
     "natxet/CssMin": "*",
     "codegyre/robo": "*",
-    "patchwork/jsqueeze":"*"
+    "patchwork/jsqueeze": "*"
   }
 }
