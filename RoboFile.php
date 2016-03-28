@@ -118,10 +118,10 @@ class RoboFile extends \Robo\Tasks
     {
         $this->clearFont();
 
-        $fromDirs = array_merge(["{$this->assetsPath}/fonts"], $this->vendorsFonts);
+        $fromDirs = array_merge(["{$this->assetsPath}/fonts/*{.eot,.svg,.ttf,.woff,.woff2}"], $this->vendorsFonts);
         $dirs     = array_combine($fromDirs, array_fill(0, count($fromDirs), "{$this->distPath}/fonts"));
 
-        $this->taskCopyDir($dirs)->run();
+        $this->taskFlattenDir($dirs)->run();
     }
 
     public function distJs()
