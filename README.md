@@ -290,3 +290,8 @@ Features
   Usage:
 
          vendor/bin/robo watch:img
+
+Todo List
+---------
+
+ - [ ] Update commands list
