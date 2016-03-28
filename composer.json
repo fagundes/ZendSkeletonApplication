@@ -4,7 +4,9 @@
   "license": "BSD-3-Clause",
   "keywords": [
     "framework",
-    "zf2"
+    "zf2",
+    "skeleton",
+    "application"
   ],
   "homepage": "http://github.com/fagundes/ZffSprout",
   "require": {
