@@ -103,7 +103,7 @@ class RoboFile extends \Robo\Tasks
         $this->taskScss([
             "{$this->assetsPath}/css/main.scss" => "{$this->distPath}/css/{$this->projectName}.css",
         ])
-            ->importDir("{$this->assetsPath}/css/*")
+            ->importDir("{$this->assetsPath}/css/")
             ->run();
 
         $this->taskMinify("{$this->distPath}/css/{$this->projectName}.css")->run();
