@@ -110,7 +110,7 @@ class RoboFile extends \Robo\Tasks
         $this->taskScss([
             "{$this->assetsPath}/css/main.scss" => "{$this->distPath}/css/{$this->projectName}.css",
         ])
-            ->importDir("{$this->assetsPath}/css/*")
+            ->importDir("{$this->assetsPath}/css/")
             ->run();
 
         $this->taskMinify("{$this->distPath}/css/{$this->projectName}.css")->run();
@@ -191,7 +191,7 @@ class RoboFile extends \Robo\Tasks
     public function watchCss()
     {
         $this->taskWatch()
-            ->monitor('public/css', function () {
+            ->monitor("{$this->assetsPath}/css", function () {
                 $this->distCss();
             })->run();
     }
@@ -199,7 +199,7 @@ class RoboFile extends \Robo\Tasks
     public function watchFont()
     {
         $this->taskWatch()
-            ->monitor('public/font', function () {
+            ->monitor("{$this->assetsPath}/fonts", function () {
                 $this->distFont();
             })->run();
     }
@@ -207,7 +207,7 @@ class RoboFile extends \Robo\Tasks
     public function watchImg()
     {
         $this->taskWatch()
-            ->monitor('public/img', function () {
+            ->monitor("{$this->assetsPath}/img", function () {
                 $this->distImg();
             })->run();
     }
@@ -215,7 +215,7 @@ class RoboFile extends \Robo\Tasks
     public function watchJs()
     {
         $this->taskWatch()
-            ->monitor('public/js', function () {
+            ->monitor("{$this->assetsPath}/js", function () {
                 $this->distJs();
             })->run();
     }
@@ -252,16 +252,16 @@ class RoboFile extends \Robo\Tasks
             ->monitor('composer.json', function () {
                 $this->taskComposerUpdate()->preferDist()->run();
             })
-            ->monitor('public/css', function () {
+            ->monitor("{$this->assetsPath}/css", function () {
                 $this->distCss();
             })
-            ->monitor('public/font', function () {
+            ->monitor("{$this->assetsPath}/fonts", function () {
                 $this->distFont();
             })
-            ->monitor('public/img', function () {
+            ->monitor("{$this->assetsPath}/img", function () {
                 $this->distImg();
             })
-            ->monitor('public/js', function () {
+            ->monitor("{$this->assetsPath}/js", function () {
                 $this->distJs();
             })
             ->run();
